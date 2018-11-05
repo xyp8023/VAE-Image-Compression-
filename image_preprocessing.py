@@ -2,9 +2,9 @@ import numpy as np
 from random import normalvariate, randint
 import os
 from PIL import Image
-import matplotlib
+# import matplotlib
 # matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 def resizeImg(**args):
     args_key = {'ori_img': '', 'dst_img': '', 'save_q': 100}
@@ -43,11 +43,12 @@ file_path = "../Dataset/train"
 files = os.listdir(file_path)
 files = [file_path + '/' + s for s in files if os.path.splitext(s)[1] == '.png']
 i=0
+crop_num = 8
 for ori_img in files:
     i+=1
     dst_img = file_path + '/resize/' + ori_img.rstrip('.png').lstrip(file_path) + '_resize.png'
     resizeImg(ori_img=ori_img, dst_img=dst_img, save_q=save_q)
-    for i in range(8):
+    for i in range(crop_num):
         dst_img = file_path + '/crop/'+ori_img.rstrip('.png').lstrip(file_path) + '_crop_' + str(i)+'.png'
         random_crop(ori_img=ori_img, dst_img=dst_img, save_q=save_q)
     print('precessing for image ' + str(i) + ' is done')
