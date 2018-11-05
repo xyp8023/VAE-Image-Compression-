@@ -44,6 +44,7 @@ files = os.listdir(file_path)
 files = [file_path + '/' + s for s in files if os.path.splitext(s)[1] == '.png']
 i=0
 crop_num = 8
+
 for ori_img in files:
     i+=1
     dst_img = file_path + '/resize/' + ori_img.rstrip('.png').lstrip(file_path) + '_resize.png'
