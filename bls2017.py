@@ -33,7 +33,7 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_compression as tfc
 
-
+import matplotlib.pyplot as plt
 def load_image(filename):
   """Loads a PNG image file."""
 
@@ -119,9 +119,12 @@ def train():
 
   # Training inputs are random crops out of the images tensor.
   crop_shape = (args.batchsize, args.patchsize, args.patchsize, 3)
-  x = tf.random_crop(images, crop_shape)
+  x = images
+  # x = tf.random_crop(images, crop_shape)
   num_pixels = np.prod(crop_shape[:-1])
-
+  # op = save_image('random_croped.png', tf.reshape(x, shape=(128,128,3)))
+  # with tf.Session() as sess:
+  #   sess.run(op)
   # Build autoencoder.
   y = analysis_transform(x, args.num_filters)
   entropy_bottleneck = tfc.EntropyBottleneck()
