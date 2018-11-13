@@ -119,12 +119,18 @@ def train():
 
   # Training inputs are random crops out of the images tensor.
   crop_shape = (args.batchsize, args.patchsize, args.patchsize, 3)
-  x = images
-  # x = tf.random_crop(images, crop_shape)
-  num_pixels = np.prod(crop_shape[:-1])
-  # op = save_image('random_croped.png', tf.reshape(x, shape=(128,128,3)))
+  # x = images
+  x = tf.random_crop(images, crop_shape)
   # with tf.Session() as sess:
-  #   sess.run(op)
+  #    sess.run(x)
+
+  num_pixels = np.prod(crop_shape[:-1])
+  # for x_num in range(8):
+  #   tmp = x[x_num,:,:,:]
+  #   # op = save_image('random_croped'+str(x_num)+'.png', tf.reshape(tmp, shape=(256,256,3)))
+  #   op = save_image('random_croped' + str(x_num) + '.png', tf.reshape(tmp))
+  #   with tf.Session() as sess:
+  #       sess.run(op)
   # Build autoencoder.
   y = analysis_transform(x, args.num_filters)
   entropy_bottleneck = tfc.EntropyBottleneck()
