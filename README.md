@@ -1,3 +1,5 @@
+The baseline trained model is too large to upload, please go to this link[baseline model](https://drive.google.com/open?id=1fIaBx92HzpsFJYJuhMzgUKjmgFgfizx-) to download the checkpoint model and put it under the folder ``train_crop1234`.
+
 This project contains data compression ops and layers for TensorFlow. The
 project website is at
 [tensorflow.github.io/compression](https://tensorflow.github.io/compression).
