@@ -18,11 +18,11 @@ train_command = 'python bls2017.py train --num_filters ' + str(num_filters)+ ' -
                 + str(patchsize) + ' -v --data_glob ' +str(data_glob) + ' --checkpoint_dir ' + str(checkpoint_dir)+' --last_step '+ str(last_step)
 
 # compress command
-compress_file_name = 'les-krivec-434_crop_1.png'
-compress_command = 'python bls2017.py compress ' + str(compress_file_name) + ' compressed1.bin --num_filters ' + str(num_filters) + ' -v --checkpoint_dir ' + str(checkpoint_dir)
+compress_file_name = 'dietmar-becker-131_crop_3.png'
+compress_command = 'python bls2017.py compress ' + str(compress_file_name) + ' compressed2.bin --num_filters ' + str(num_filters) + ' -v --checkpoint_dir ' + str(checkpoint_dir)
 
 # decompress command
-decompress_command = 'python bls2017.py decompress compressed1.bin decompressed1.png --num_filters ' + str(num_filters) + ' -v --checkpoint_dir ' + str(checkpoint_dir)
+decompress_command = 'python bls2017.py decompress compressed2.bin decompressed2.png --num_filters ' + str(num_filters) + ' -v --checkpoint_dir ' + str(checkpoint_dir)
 
 
 # train
