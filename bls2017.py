@@ -222,6 +222,12 @@ def compress():
       # The actual bits per pixel including overhead.
       bpp = (8 + len(string)) * 8 / num_pixels
 
+      psnr = 10 * np.log10(255*255/mse)
+      with open('Output_MSE.txt', 'a+') as text_file:
+          text_file.write('%10f\n' % mse)
+      with open('Output_PSNR.txt', 'a+') as text_psnr_file:
+          text_psnr_file.write('%10f\n' % psnr)
+      print('PSNR: {:0.4}'.format(psnr))
       print("Mean squared error: {:0.4}".format(mse))
       print("Information content of this image in bpp: {:0.4}".format(eval_bpp))
       print("Actual bits per pixel for this image: {:0.4}".format(bpp))
