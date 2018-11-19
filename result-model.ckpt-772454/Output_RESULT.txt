@@ -1,0 +1,3 @@
+average MS-SSIM: 0.9838
+average MSE: 404.6
+average PSNR: 27.14

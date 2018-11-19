@@ -206,6 +206,7 @@ def compress():
     # Load the latest model checkpoint, get the compressed string and the tensor
     # shapes.
     latest = tf.train.latest_checkpoint(checkpoint_dir=args.checkpoint_dir)
+    result_dir = 'result-'+ latest.split('\\')[-1]
     tf.train.Saver().restore(sess, save_path=latest)
     string, x_shape, y_shape = sess.run([string, tf.shape(x), tf.shape(y)])
 
