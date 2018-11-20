@@ -1,0 +1,5 @@
+average MS-SSIM: 0.9838
+average MSE: 404.6
+average PSNR: 27.14
+average Information in bpp: 1.786
+average Actual in bpp: 1.799

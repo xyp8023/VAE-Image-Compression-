@@ -228,6 +228,10 @@ def compress():
           text_file.write('%10f\n' % mse)
       with open('Output_PSNR.txt', 'a+') as text_psnr_file:
           text_psnr_file.write('%10f\n' % psnr)
+      with open('Output_InformationInBPP.txt', 'a+') as text_information_file:
+          text_information_file.write('%10f\n' % eval_bpp)
+      with open('Output_ActualBPP.txt', 'a+') as text_Actual_file:
+          text_Actual_file.write('%10f\n' % bpp)
       print('PSNR: {:0.4}'.format(psnr))
       print("Mean squared error: {:0.4}".format(mse))
       print("Information content of this image in bpp: {:0.4}".format(eval_bpp))
