@@ -14,10 +14,11 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import subprocess
 file_path = "../Dataset/test/resize"
+#file_path = "../Dataset/test/resize/resize_part"
 files = os.listdir(file_path)
 files = [file_path + '/' + s for s in files if os.path.splitext(s)[1] == '.png']
 num_filters = 128  # default 128
-checkpoint_dir = 'train_crop1234'  # default train
+checkpoint_dir = 'train_crop12345'  # default train
 compress_file_path =file_path + '/compress/'
 decompress_file_path =file_path + '/decompress/'
 
@@ -39,9 +40,9 @@ for ori_img in files:
 
     # EVALUATE
     msssim_command = 'python msssim.py --original_image='+ori_img+' --compared_image='+decompressed_file_name
-    msssim_command1 = 'msssim.py --original_image=' + ori_img + ' --compared_image=' + decompressed_file_name
-
     print(msssim_command)
     subprocess.call(msssim_command)
     #msssim=subprocess.check_call(msssim_command)
 print('Test Image Preprocessing is done')
+calculate_evaluation_command = 'python calculate_mean_msssim.py'
+subprocess.call(calculate_evaluation_command)
