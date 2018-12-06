@@ -1,7 +1,7 @@
 import os
 import numpy as np
 
-result_dir = 'result-train_crop1234'
+result_dir = 'result-train_crop12345'
 if not os.path.exists(result_dir):
     os.makedirs(result_dir)
 
